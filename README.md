@@ -56,8 +56,8 @@ optional arguments:
 
 Feel free to open a pull request with results from your local machine. It is always welcome to seen new system configurations for reference.
 
-|Model                      | Sequence Length | Batch Size| `num_samples` | CPU                         | RAM        | Tokenization  | Inference | Samples per second |
-| :------------------------ | --------------: | --------: | ------------: | :-------------------------- | :--------: | ------------: | --------: | -----------------: |
-| `bert-base-uncased`       | 128             | 16        | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8039s       | 185.05s   | 5.38               |
-|                           | 256             | 16        | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8476s       | 579.95s   | 1.72               |
-| `distilbert-base-uncased` | 128             | 16        | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 1.5550s       | 99.09s    | 10.10              |
+|Model                      | Sequence Length | Batch Size| Samples per second | `num_samples` | CPU                         | RAM        | Tokenization  | Inference |
+| :------------------------ | --------------: | --------: | -----------------: | ------------: | :-------------------------- | :--------: | ------------: | --------: |
+| `bert-base-uncased`       | 128             | 16        | 5.38               | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8039s       | 185.05s   |
+|                           | 256             | 16        | 1.72               | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8476s       | 579.95s   |
+| `distilbert-base-uncased` | 128             | 16        | 10.10              | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 1.5550s       | 99.09s    |
