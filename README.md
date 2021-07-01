@@ -61,3 +61,4 @@ Feel free to open a pull request with results from your local machine. It is alw
 | `bert-base-uncased`       | 128             | 16        | 5.38               | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8039s       | 185.05s   |
 |                           | 256             | 16        | 1.72               | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8476s       | 579.95s   |
 | `distilbert-base-uncased` | 128             | 16        | 10.10              | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 1.5550s       | 99.09s    |
+|                           | 128             | 32        | 11.19              | 100           | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.0846s       | 8.85s     |

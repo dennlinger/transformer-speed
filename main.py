@@ -66,9 +66,15 @@ if __name__ == '__main__':
 
     tokenization_duration = stop_time_tokenization - start_time_tokenization
     forward_pass_duration = stop_time_forward_pass - start_time_forward_pass
+    samples_per_sec = args.num_samples / (tokenization_duration + forward_pass_duration)
 
     print(f"Tokenization took: {tokenization_duration:.4f}s")
     print(f"Forward pass took: {forward_pass_duration:.2f}s")
 
-    print(f"This equals a processing of approximately "
-          f"{args.num_samples / (tokenization_duration + forward_pass_duration):.2f} samples per second")
+    print(f"This equals a processing of approximately {samples_per_sec:.2f} samples per second.\n"
+          f"(= num_samples / (tokenization_time + inference_time)")
+
+    print("Copy the following line if you want to open a PR with your results in the repository README:")
+    print(f"| `{args.model_name}`    | {args.max_length} | {args.batch_size} | {samples_per_sec:.2f} | {args.num_samples} | "
+          f"<fill in CPU model> | <fill in RAM type and clock speed> | "
+          f"{tokenization_duration:.4f}s  | {forward_pass_duration:.2f}s |")
