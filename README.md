@@ -25,7 +25,7 @@ from the repository's directory.
 
 To run the script, simply provide a model name and the desired sequence length (available up to the model's maximum; generally 512 tokens).
 A standard run might look like this:
-```python
+```bash
 python3 main.py bert-base-uncased 256
 ```
 
@@ -54,7 +54,10 @@ optional arguments:
 ```
 # Results
 
-|Model                      | Sequence Length | Batch Size| CPU                         | RAM        | Tokenization  | Inference | Samples per second |
-| :------------------------ | --------------: | --------: | :-------------------------- | :--------: | ------------: | --------: | -----------------: |
-| `bert-base-uncased`       | 128             | 16        | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8039s       | 185.05s   | 5.38               |
-| `distilbert-base-uncased` | 128             | 16        | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 1.5550s       | 99.09s    | 10.10              |
+Feel free to open a pull request with results from your local machine. It is always welcome to seen new system configurations for reference.
+
+|Model                      | Sequence Length | Batch Size| `num_samples` | CPU                         | RAM        | Tokenization  | Inference | Samples per second |
+| :------------------------ | --------------: | --------: | ------------: | :-------------------------- | :--------: | ------------: | --------: | -----------------: |
+| `bert-base-uncased`       | 128             | 16        | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8039s       | 185.05s   | 5.38               |
+|                           | 256             | 16        | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8476s       | 579.95s   | 1.72               |
+| `distilbert-base-uncased` | 128             | 16        | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 1.5550s       | 99.09s    | 10.10              |
