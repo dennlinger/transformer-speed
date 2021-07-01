@@ -18,7 +18,7 @@ Further, existing computing infrastructure supports mainly CPU
 
 # Results
 
-|Model                      | Sequence Length | CPU                         | RAM        | Tokenization  | Inference | Samples per s |
+|Model                      | Sequence Length | CPU                         | RAM        | Tokenization  | Inference | Samples per second |
 | :------------------------ | --------------- | :-------------------------- | :--------: | ------------: | --------: | ------------: |
 | `bert-base-uncased`       | 64              | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.0581s       | 71.68s    |               |
-| `distilbert-base-uncased` | 64              | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.0581s       | 40.77s    |               |
+| `distilbert-base-uncased` | 128             | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 1.5550s       | 99.09s    | 10.10         |
