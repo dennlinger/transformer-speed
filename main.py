@@ -7,7 +7,7 @@ import torch
 import argparse
 import numpy as np
 
-
+from tqdm import tqdm
 from transformers import AutoModel, AutoTokenizer
 
 
@@ -27,7 +27,7 @@ def get_args():
                         help="Random seed used by the numpy rng state to determine the samples")
     parser.add_argument("--num_samples", type=int, default=1000,
                         help="Number of samples that should be processed during the entire process. "
-                             "Our data set currently provides 100 differently long inputs, "
+                             "Our data set currently provides ~200 inputs (of maximum length), "
                              "which will be chosen randomly, and potentially repeated.")
 
     return parser.parse_args()
@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
     start_time_forward_pass = time.time()
     with torch.no_grad():
-        for batch in tokenized_batches:
+        for batch in tqdm(tokenized_batches):
             res = model(**batch)
     stop_time_forward_pass = time.time()
 
@@ -70,5 +70,5 @@ if __name__ == '__main__':
     print(f"Tokenization took: {tokenization_duration:.4f}s")
     print(f"Forward pass took: {forward_pass_duration:.2f}s")
 
-    print(f"This equals a per-sample inference time of {tokenization_duration / 1000:.4f} + "
-          f"{forward_pass_duration / 1000:.2f} = {(tokenization_duration + forward_pass_duration) / 1000:.2f}")
+    print(f"This equals a processing of approximately "
+          f"{args.num_samples / (tokenization_duration + forward_pass_duration):.2f} samples per second")
