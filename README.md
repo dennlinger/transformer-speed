@@ -15,10 +15,46 @@ Especially when working with small batch sizes, the overhead of transfer might e
 Further, existing computing infrastructure supports mainly CPU
 (especially in smaller companies that don't rely on Cloud Service provides like AWS/GCP/Azure).
 
+# Installation & Usage
 
+To install this library, simply clone the repository, and run
+```bash
+python3 -m pip install -r requirements.txt
+```
+from the repository's directory.
+
+To run the script, simply provide a model name and the desired sequence length (available up to the model's maximum; generally 512 tokens).
+A standard run might look like this:
+```python
+python3 main.py bert-base-uncased 256
+```
+
+
+To see all available arguments, have a look at `python3 main.py --help`, which will print the following output:
+
+```
+usage: main.py [-h] [--device DEVICE] [--batch_size BATCH_SIZE] [--seed SEED] [--num_samples NUM_SAMPLES] model_name max_length
+
+positional arguments:
+  model_name            The name of the Transformer model to use for this run.
+  max_length            Maximum input length. Most transformer models restrict this to 512 subword tokens, however, they also benefit from a shorter input
+                        length due to less calculations.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --device DEVICE       Which device to use for execution. Currently only supports CPU usage.
+  --batch_size BATCH_SIZE
+                        How many samples will be aggregated into a single forward pass. Does not affect the total number of --num_samples being processed
+  --seed SEED           Random seed used by the numpy rng state to determine the samples
+  --num_samples NUM_SAMPLES
+                        Number of samples that should be processed during the entire process. Our data set currently provides ~200 inputs (of maximum
+                        length), which will be chosen randomly, and potentially repeated.
+
+
+```
 # Results
 
-|Model                      | Sequence Length | CPU                         | RAM        | Tokenization  | Inference | Samples per second |
-| :------------------------ | --------------- | :-------------------------- | :--------: | ------------: | --------: | ------------: |
-| `bert-base-uncased`       | 64              | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.0581s       | 71.68s    |               |
-| `distilbert-base-uncased` | 128             | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 1.5550s       | 99.09s    | 10.10         |
+|Model                      | Sequence Length | Batch Size| CPU                         | RAM        | Tokenization  | Inference | Samples per second |
+| :------------------------ | --------------: | --------: | :-------------------------- | :--------: | ------------: | --------: | -----------------: |
+| `bert-base-uncased`       | 128             | 16        | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8039s       | 185.05s   | 5.38               |
+| `distilbert-base-uncased` | 128             | 16        | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 1.5550s       | 99.09s    | 10.10              |
