@@ -6,6 +6,9 @@ This repository provides a quick evaluation setup to benchmark wall clock timing
 Specifically, this also collects results from various systems.
 Feel free to open a PR with timings with your local hardware,
 to get a better understanding of how fast/slow inference on various systems is.
+This specifically does not utilize `transformers.pipelines`, 
+which make some assumption that do not benefit performance, 
+specifically with respect to the input length and padding strategy. 
 
 ## Caveats
 Currently, this only supports CPU execution, but I plan to incorporate GPU inference soon.
