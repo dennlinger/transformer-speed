@@ -62,8 +62,12 @@ Feel free to open a pull request with results from your local machine. It is alw
 |Model                      | Sequence Length | Batch Size| Samples per second | `num_samples` | CPU                         | RAM        | Tokenization  | Inference |
 | :------------------------ | --------------: | --------: | -----------------: | ------------: | :-------------------------- | :--------: | ------------: | --------: |
 | `bert-base-uncased`       | 128             | 16        | 5.38               | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8039s       | 185.05s   |
+|                           | 128             | 16        | 15.33              | 1000          | AMD Ryzen 5 5600X           | DDR4-3200  | 0.2826s       | 64.94s    |
 |                           | 128             | 16        | 14.72              | 1000          | Intel(R) Xeon(R) Silver 4210| DDR4-2933  | 0.5708s       | 67.34s    |
 |                           | 256             | 16        | 1.72               | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.8476s       | 579.95s   |
+|                           | 512             | 16        | 2.74               | 1000          | AMD Ryzen 5 5600X           | DDR4-3200  | 0.3065s       | 364.09s   |
 | `distilbert-base-uncased` | 128             | 16        | 10.10              | 1000          | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 1.5550s       | 99.09s    |
 |                           | 128             | 16        | 30.07              | 1000          | Intel(R) Xeon(R) Silver 4210| DDR4-2933  | 0.5695s       | 32.69s    |
+|                           | 128             | 16        | 29.57              | 1000          | AMD Ryzen 5 5600X           | DDR4-3200  | 0.3217s       | 33.50s    |
 |                           | 128             | 32        | 11.19              | 100           | Intel(R) Core(TM) i7-7560U  | DDR3-1866  | 0.0846s       | 8.85s     |
+|                           | 512             | 16        | 5.92               | 1000          | AMD Ryzen 5 5600X           | DDR4-3200  | 0.3221s       | 168.61s   |
